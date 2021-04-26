@@ -9,7 +9,6 @@
     "dist"
   ],
   "author": "Chris Milson <chris.w.milson@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "build:docs": "typedoc --out docs src/index.ts",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
