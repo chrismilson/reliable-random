@@ -11,10 +11,24 @@ const U32_MASK = (BigInt(1) << BigInt(32)) - BigInt(1)
  */
 const U64_MASK = (BigInt(1) << BigInt(64)) - BigInt(1)
 
-export default class PCG32 {
+export class Random {
+  /** The internal state of the generator. */
   private _state: bigint
+  /** The sequence number of the generator. */
   private _inc: bigint
 
+  /**
+   * A PRNG class. Provides two main methods:
+   *
+   * - `random` - Produces a "continuous" standard uniform distribution.
+   * - `randint` - Produces a discrete uniform distribution.
+   *
+   * For more details, check the individual methods.
+   *
+   * @param initState The seed to initialise the state of the generator.
+   * @param initSequence The seed to initialise the sequence number of the
+   * generator.
+   */
   // The state and sequence are stored as bigints, but anything that is
   // coercible to a bigint should be a valid seed.
   constructor(
