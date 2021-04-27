@@ -59,6 +59,8 @@ export default class PCG32 {
    * log(delta) time.
    */
   _advance(delta: bigint): void {
+    // The period is 2 ^ 64.
+    delta &= U64_MASK
     // If delta is negative, we make it positive and go around the other way.
     if (delta < 0) {
       delta = U64_MASK ^ -delta
