@@ -74,11 +74,8 @@ export class Random {
    */
   _advance(delta: bigint): void {
     // The period is 2 ^ 64.
-    delta &= U64_MASK
     // If delta is negative, we make it positive and go around the other way.
-    if (delta < 0) {
-      delta = U64_MASK ^ -delta
-    }
+    delta &= U64_MASK
 
     /** The accumulated multiplier */
     let mult_acc = BigInt(1)
